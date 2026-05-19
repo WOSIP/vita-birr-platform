@@ -310,6 +310,30 @@ const About = () => {
                 </div>
               ))}
             </div>
+
+            <div className="mt-10 pt-8 border-t border-slate-200">
+              <h3 className="text-xl font-bold text-[#002147] mb-4">Regulatory & Contact Information</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p className="font-semibold text-[#002147]">License Registration Number</p>
+                  <p className="text-slate-600">NPS-PII/006/2025 (National Bank of Ethiopia)</p>
+                  <a href="https://share.google/5XftZoMrN0QP7qfs5" target="_blank" rel="noopener noreferrer" className="text-[#CE1126] hover:underline text-xs">View Source</a>
+                </div>
+                <div>
+                  <p className="font-semibold text-[#002147]">VAT Registration No.</p>
+                  <p className="text-slate-600">40857940010</p>
+                </div>
+                <div>
+                  <p className="font-semibold text-[#002147]">Registration Date</p>
+                  <p className="text-slate-600">March 17, 2026</p>
+                </div>
+                <div>
+                  <p className="font-semibold text-[#002147]">Contact Email</p>
+                  <a href="mailto:info@vitabirr.com" className="text-[#CE1126] hover:underline">info@vitabirr.com</a>
+                  <p className="text-slate-500 text-xs mt-1">No B.O.Box</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -628,7 +652,7 @@ const ContactSection = () => {
                     </div>
                     <div>
                       <p className="text-sm opacity-60">Email Us</p>
-                      <p className="text-lg font-bold">contact@vitabirr.et</p>
+                      <p className="text-lg font-bold">info@vitabirr.com</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-6">
