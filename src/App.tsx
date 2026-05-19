@@ -27,6 +27,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { 
   Table, 
   TableBody, 
@@ -36,11 +37,11 @@ import {
   TableRow 
 } from '@/components/ui/table';
 import { Toaster, toast } from 'sonner';
-import PrivacyPolicy from './pages/PrivacyPolicy';
-import TermsOfService from './pages/TermsOfService';
-import CookiePolicy from './pages/CookiePolicy';
-import PartnerFunding from './pages/PartnerFunding';
-import VitaFinanceBNPL from './pages/VitaFinanceBNPL';
+import PrivacyPolicy from './pages/PrivacyPolicy.tsx';
+import TermsOfService from './pages/TermsOfService.tsx';
+import CookiePolicy from './pages/CookiePolicy.tsx';
+import PartnerFunding from './pages/PartnerFunding.tsx';
+import VitaFinanceBNPL from './pages/VitaFinanceBNPL.tsx';
 
 // --- DATA ---
 const NAV_LINKS = [
@@ -92,9 +93,10 @@ const COMPARISON = [
 ];
 
 const TEAM = [
-  { name: "Dr. Dawit Mekonnen", role: "CEO & Founder", image: "https://storage.googleapis.com/dala-prod-public-storage/generated-images/8b29ac4b-777e-420d-8d8b-ae10d5d21b76/team-member-1-61d04d34-1779142588913.webp" },
-  { name: "Selamawit Tadesse", role: "Chief Operations Officer", image: "https://storage.googleapis.com/dala-prod-public-storage/generated-images/8b29ac4b-777e-420d-8d8b-ae10d5d21b76/team-member-2-d79d5fbd-1779142588527.webp" },
-  { name: "Yonas Kebede", role: "Chief Technology Officer", image: "https://storage.googleapis.com/dala-prod-public-storage/generated-images/8b29ac4b-777e-420d-8d8b-ae10d5d21b76/team-member-3-3df5e7e4-1779142588099.webp" }
+  { name: "Mulugeta Shiferaw", role: "CEO", image: "https://storage.googleapis.com/dala-prod-public-storage/attachments/2b04cbc3-7457-4f8b-bed7-cf47a1dea9c2/1779227162099_mulugeta.png" },
+  { name: "Sizana Tesfaye", role: "Chief Operations Officer", image: "https://storage.googleapis.com/dala-prod-public-storage/attachments/2b04cbc3-7457-4f8b-bed7-cf47a1dea9c2/1779229239061_sizana.png" },
+  { name: "Biniam Assefa", role: "Chief Technology Officer", image: "https://storage.googleapis.com/dala-prod-public-storage/attachments/2b04cbc3-7457-4f8b-bed7-cf47a1dea9c2/1779228040578_biniam_1.png" },
+  { name: "Sabrin Selal", role: "System Administrator", image: "https://storage.googleapis.com/dala-prod-public-storage/attachments/2b04cbc3-7457-4f8b-bed7-cf47a1dea9c2/1779226479911_sabrine_selal.png" }
 ];
 
 const BLOG_POSTS = [
@@ -526,11 +528,10 @@ const TeamSection = () => {
             <div key={member.name} className="text-center group">
               <div className="relative w-64 h-64 mx-auto mb-6">
                 <div className="absolute inset-0 bg-[#CE1126] rounded-full scale-90 group-hover:scale-100 transition-transform duration-500"></div>
-                <img 
-                  src={member.image} 
-                  alt={member.name} 
-                  className="relative w-full h-full object-cover rounded-full border-4 border-white shadow-xl grayscale group-hover:grayscale-0 transition-all duration-500"
-                />
+                <Avatar className="relative w-full h-full border-4 border-white shadow-xl">
+                  <AvatarImage src={member.image} alt={member.name} className="grayscale group-hover:grayscale-0 transition-all duration-500" />
+                  <AvatarFallback className="text-4xl bg-slate-200">{member.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                </Avatar>
               </div>
               <h3 className="text-2xl font-bold text-[#002147]">{member.name}</h3>
               <p className="text-[#CE1126] font-medium">{member.role}</p>
