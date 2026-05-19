@@ -40,6 +40,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import CookiePolicy from './pages/CookiePolicy';
 import PartnerFunding from './pages/PartnerFunding';
+import VitaFinanceBNPL from './pages/VitaFinanceBNPL';
 
 // --- DATA ---
 const NAV_LINKS = [
@@ -618,7 +619,7 @@ const ContactSection = () => {
                     </div>
                     <div>
                       <p className="text-sm opacity-60">Call Us</p>
-                      <p className="text-lg font-bold">+251 11 123 4567</p>
+                      <p className="text-lg font-bold">+251956659965</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-6">
@@ -636,7 +637,7 @@ const ContactSection = () => {
                     </div>
                     <div>
                       <p className="text-sm opacity-60">Visit Us</p>
-                      <p className="text-lg font-bold">Bole Road, Addis Ababa, Ethiopia</p>
+                      <p className="text-lg font-bold">Africa Venue, Airport Road, Abyssinia Realestate Building, 3rd floor, Addis Ababa, Ethiopia.</p>
                     </div>
                   </div>
                 </div>
@@ -716,7 +717,7 @@ const Footer = () => {
             <ul className="space-y-4 text-slate-400 text-sm">
               <li><a href="#" className="hover:text-white transition-colors">Cross-Boundary Pay</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Merchant Solutions</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Vita Finance (BNPL)</a></li>
+              <li><Link to="/vita-finance-bnpl" className="hover:text-white transition-colors">Vita Finance (BNPL)</Link></li>
               <li><Link to="/partner-funding" className="hover:text-white transition-colors">Partner Funding</Link></li>
             </ul>
           </div>
@@ -811,6 +812,13 @@ function App() {
             <>
               <Navbar />
               <PartnerFunding />
+              <Footer />
+            </>
+          } />
+          <Route path="/vita-finance-bnpl" element={
+            <>
+              <Navbar />
+              <VitaFinanceBNPL />
               <Footer />
             </>
           } />
