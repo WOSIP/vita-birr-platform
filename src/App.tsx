@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ChevronRight, 
@@ -35,6 +36,10 @@ import {
   TableRow 
 } from '@/components/ui/table';
 import { Toaster, toast } from 'sonner';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
+import CookiePolicy from './pages/CookiePolicy';
+import PartnerFunding from './pages/PartnerFunding';
 
 // --- DATA ---
 const NAV_LINKS = [
@@ -102,6 +107,8 @@ const BLOG_POSTS = [
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -109,33 +116,50 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (!isHome && href.startsWith('#')) {
+      // If we're not on home and it's an anchor, we don't handle it here, 
+      // the href will naturally be #about which is wrong on /privacy-policy.
+      // But for this implementation, we'll let it be. 
+      // Ideally we'd use Link to="/" and then scroll.
+    } else if (isHome && href.startsWith('#')) {
+      e.preventDefault();
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+      setIsMobileMenuOpen(false);
+    }
+  };
+
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || !isHome ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'}`}>
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <div className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <div className="w-10 h-10 bg-[#002147] rounded-lg flex items-center justify-center">
             <span className="text-white font-bold text-xl">V</span>
           </div>
-          <span className={`text-2xl font-bold ${isScrolled ? 'text-[#002147]' : 'text-white'}`}>Vitabirr</span>
-        </div>
+          <span className={`text-2xl font-bold ${isScrolled || !isHome ? 'text-[#002147]' : 'text-white'}`}>Vitabirr</span>
+        </Link>
 
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map(link => (
             <a 
               key={link.name} 
-              href={link.href} 
-              className={`text-sm font-medium transition-colors hover:text-[#CE1126] ${isScrolled ? 'text-[#002147]' : 'text-white'}`}
+              href={isHome ? link.href : `/${link.href}`}
+              onClick={(e) => handleLinkClick(e, link.href)}
+              className={`text-sm font-medium transition-colors hover:text-[#CE1126] ${isScrolled || !isHome ? 'text-[#002147]' : 'text-white'}`}
             >
               {link.name}
             </a>
           ))}
-          <Button variant={isScrolled ? "default" : "secondary"} className="bg-[#CE1126] text-white hover:bg-[#b00e20] border-none">
+          <Button variant={isScrolled || !isHome ? "default" : "secondary"} className="bg-[#CE1126] text-white hover:bg-[#b00e20] border-none">
             Get Started
           </Button>
         </div>
 
         <button className="md:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-          {isMobileMenuOpen ? <X className={isScrolled ? 'text-[#002147]' : 'text-white'} /> : <Menu className={isScrolled ? 'text-[#002147]' : 'text-white'} />}
+          {isMobileMenuOpen ? <X className={isScrolled || !isHome ? 'text-[#002147]' : 'text-white'} /> : <Menu className={isScrolled || !isHome ? 'text-[#002147]' : 'text-white'} />}
         </button>
       </div>
 
@@ -151,8 +175,8 @@ const Navbar = () => {
               {NAV_LINKS.map(link => (
                 <a 
                   key={link.name} 
-                  href={link.href} 
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  href={isHome ? link.href : `/${link.href}`}
+                  onClick={(e) => handleLinkClick(e, link.href)}
                   className="text-lg font-medium text-[#002147] hover:text-[#CE1126]"
                 >
                   {link.name}
@@ -193,7 +217,7 @@ const Hero = () => {
           </h1>
           <p className="text-white/60 text-xs mb-4">(*) Does not apply if you send money to another Financial institution.</p>
           <p className="text-xl text-slate-300 mb-4 max-w-2xl leading-relaxed">
-            Vitabirr \u2013 Zero fees for end users. Seamless merchant payments. Powering Ethiopian prosperity.
+            Vitabirr &ndash; Zero fees for end users. Seamless merchant payments. Powering Ethiopian prosperity.
           </p>
           <p className="text-lg text-white font-semibold mb-8 max-w-2xl">
             Register now and get your Vitabirr account active in minutes.
@@ -253,7 +277,7 @@ const About = () => {
           <div>
             <h2 className="text-[#002147] text-4xl font-bold mb-6">Empowering Ethiopia's Digital Economy</h2>
             <p className="text-slate-600 text-lg leading-relaxed mb-8">
-              Vitabirr is a next-generation payment instrument operating within Ethiopia's digital financial ecosystem. While others focus primarily on remittances, Vitabirr is architected as an economic infrastructure layer \u2013 designed to support the Ethiopian economy by complementing, rather than competing with, traditional banking.
+              Vitabirr is a next-generation payment instrument operating within Ethiopia's digital financial ecosystem. While others focus primarily on remittances, Vitabirr is architected as an economic infrastructure layer &ndash; designed to support the Ethiopian economy by complementing, rather than competing with, traditional banking.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
@@ -416,7 +440,7 @@ const ImpactSection = () => {
             <CardContent className="p-8">
               <h3 className="text-2xl font-bold text-[#002147] mb-4">Farmer Abebe: Instant Harvest Liquidity</h3>
               <p className="text-slate-600 leading-relaxed mb-6">
-                "Before Vitabirr, I waited weeks for payments from Addis. Now, the moment my truck unloads, my wallet confirms the Birr. No fees, no delays. I can buy fertilizer the same day."
+                &quot;Before Vitabirr, I waited weeks for payments from Addis. Now, the moment my truck unloads, my wallet confirms the Birr. No fees, no delays. I can buy fertilizer the same day.&quot;
               </p>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-slate-200 overflow-hidden">
@@ -442,9 +466,9 @@ const ImpactSection = () => {
               </div>
             </div>
             <CardContent className="p-8">
-              <h3 className="text-2xl font-bold text-[#002147] mb-4">Aida's Boutique: Scaling at Zero Cost</h3>
+              <h3 className="text-2xl font-bold text-[#002147] mb-4">Aida&apos;s Boutique: Scaling at Zero Cost</h3>
               <p className="text-slate-600 leading-relaxed mb-6">
-                "High transaction fees were eating my margins. Vitabirr changed everything. My customers pay zero, I receive instantly, and my cross-boundary supplier payments are now free."
+                &quot;High transaction fees were eating my margins. Vitabirr changed everything. My customers pay zero, I receive instantly, and my cross-boundary supplier payments are now free.&quot;
               </p>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-slate-200 overflow-hidden">
@@ -676,12 +700,12 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-12 mb-20">
           <div className="col-span-1 md:col-span-1">
-            <div className="flex items-center gap-2 mb-6">
+            <Link to="/" className="flex items-center gap-2 mb-6">
               <div className="w-8 h-8 bg-[#CE1126] rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold">V</span>
               </div>
               <span className="text-2xl font-bold">Vitabirr</span>
-            </div>
+            </Link>
             <p className="text-slate-400 text-sm leading-relaxed mb-8">
               Ethiopia's most trusted digital economic enabler. Beyond Banking. Powering Trade. Zero Cost to You.
             </p>
@@ -693,7 +717,7 @@ const Footer = () => {
               <li><a href="#" className="hover:text-white transition-colors">Cross-Boundary Pay</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Merchant Solutions</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Vita Finance (BNPL)</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Partner Funding</a></li>
+              <li><Link to="/partner-funding" className="hover:text-white transition-colors">Partner Funding</Link></li>
             </ul>
           </div>
 
@@ -723,9 +747,9 @@ const Footer = () => {
             Regulated under the National Bank of Ethiopia.
           </p>
           <div className="flex gap-8 text-xs text-slate-500">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-white transition-colors">Cookie Policy</a>
+            <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link to="/cookie-policy" className="hover:text-white transition-colors">Cookie Policy</Link>
           </div>
         </div>
       </div>
@@ -733,14 +757,10 @@ const Footer = () => {
   );
 };
 
-// --- MAIN APP ---
-
-function App() {
+const HomePage = () => {
   return (
-    <div className="min-h-screen bg-white font-sans selection:bg-[#CE1126] selection:text-white">
-      <Toaster position="top-center" richColors />
+    <>
       <Navbar />
-      
       <main>
         <Hero />
         <About />
@@ -751,9 +771,52 @@ function App() {
         <BlogSection />
         <ContactSection />
       </main>
-
       <Footer />
-    </div>
+    </>
+  );
+};
+
+// --- MAIN APP ---
+
+function App() {
+  return (
+    <BrowserRouter>
+      <div className="min-h-screen bg-white font-sans selection:bg-[#CE1126] selection:text-white">
+        <Toaster position="top-center" richColors />
+        
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/privacy-policy" element={
+            <>
+              <Navbar />
+              <PrivacyPolicy />
+              <Footer />
+            </>
+          } />
+          <Route path="/terms-of-service" element={
+            <>
+              <Navbar />
+              <TermsOfService />
+              <Footer />
+            </>
+          } />
+          <Route path="/cookie-policy" element={
+            <>
+              <Navbar />
+              <CookiePolicy />
+              <Footer />
+            </>
+          } />
+          <Route path="/partner-funding" element={
+            <>
+              <Navbar />
+              <PartnerFunding />
+              <Footer />
+            </>
+          } />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

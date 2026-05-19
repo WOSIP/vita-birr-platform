@@ -1,20 +1,46 @@
-# Implementation Plan - Update Shop Visuals (Pictures 4 & 5)
+# Plan: Implement "Partner Funding" Page
 
-Update the comparative visuals for the SME case study ("Aida's Boutique") to reflect a food shop context with a "Before" (nearly empty) and "After" (well-organized, full) scenario.
+This plan outlines the steps to create a new "Partner Funding" page based on the partnership between Abay Bank and Vitabirr, integrating it into the existing React application.
 
-## Proposed Changes
+## Scope Summary
+- Create a new page component `PartnerFunding.tsx` with structured content.
+- Update `App.tsx` to include the new route and link the page.
+- Ensure the design matches the existing professional, Tailwind-based styling.
 
-### 1. Update Impact Stories Visuals (`src/App.tsx`)
-- Locate the second card in the `ImpactSection`.
-- Update the "Before" image (Picture 4) to show the nearly empty food shop.
-- Update the "After" image (Picture 5) to show the well-organized, full food shop.
-- Preserve the existing "Aida's Boutique" branding and testimonial text.
+## Affected Areas
+- `src/pages/PartnerFunding.tsx`: New file.
+- `src/App.tsx`: Routing and potential navigation updates.
 
-## Visual Assets
-- **Picture 4 (Before):** `https://storage.googleapis.com/dala-prod-public-storage/generated-images/8b29ac4b-777e-420d-8d8b-ae10d5d21b76/nearly-empty-shop-before-vitabirr-e99672cb-1779144920972.webp`
-- **Picture 5 (After):** `https://storage.googleapis.com/dala-prod-public-storage/generated-images/8b29ac4b-777e-420d-8d8b-ae10d5d21b76/full-organized-shop-after-vitabirr-1d201384-1779144919534.webp`
+## Implementation Phases
 
-## Steps
-1. Modify `src/App.tsx` to update the image sources in the `ImpactSection`.
-2. Verify the visual alignment and responsive layout.
-3. Validate the build.
+### Phase 1: Content Implementation
+- **Owner**: `frontend_engineer`
+- **Tasks**:
+    - Implement the `PartnerFunding` component in `src/pages/PartnerFunding.tsx`.
+    - Structure the provided text into the following sections:
+        - **Hero/Header**: Title and "Summary of Advantages".
+        - **Core Advantages**: Use a Shadcn `Table` to display the "Core Advantages of the Partnership" data.
+        - **Detailed Analysis**: Use structured sections (h2/h3) and paragraphs for the 5 points (BNPL, Reach, Data, Capital, Experience).
+        - **Strategic Positioning**: A summary section explaining the role of each entity.
+        - **Challenges & Mitigations**: Use a Shadcn `Table` or `Accordion` for the technical risks.
+        - **Conclusion**: A final summary call-to-action or statement.
+    - Apply brand colors (Primary: `#002147`, Secondary: `#CE1126`) using Tailwind classes.
+
+### Phase 2: Routing & Navigation
+- **Owner**: `frontend_engineer`
+- **Tasks**:
+    - Update `src/App.tsx` to import `PartnerFunding`.
+    - Add a `<Route path="/partner-funding" element={<PartnerFunding />} />` within the `<Routes>` block.
+    - Ensure the `Navbar` and `Footer` are included in the route's layout (matching the pattern used for Privacy Policy).
+    - Update the `Footer` component in `src/App.tsx` to link "Partner Funding" (under Platform) to `/partner-funding` instead of `#`.
+
+### Phase 3: Verification
+- **Owner**: `quick_fix_engineer`
+- **Tasks**:
+    - Verify all links work.
+    - Check for responsive design on the new tables.
+    - Ensure no regressions on the Landing page or Policy pages.
+
+## Assumptions
+- The page should follow the layout pattern: `<Navbar />` -> `Content` -> `<Footer />`.
+- We will use existing Lucide icons for visual flair where appropriate.
