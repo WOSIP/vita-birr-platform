@@ -42,6 +42,7 @@ import TermsOfService from './pages/TermsOfService.tsx';
 import CookiePolicy from './pages/CookiePolicy.tsx';
 import PartnerFunding from './pages/PartnerFunding.tsx';
 import VitaFinanceBNPL from './pages/VitaFinanceBNPL.tsx';
+import VitabirrETSwitch from './pages/VitabirrETSwitch.tsx';
 
 // --- DATA ---
 const NAV_LINKS = [
@@ -215,12 +216,12 @@ const Hero = () => {
         >
           <Badge className="mb-4 bg-[#CE1126] hover:bg-[#CE1126] text-white px-3 py-1 text-sm">Beyond Banking</Badge>
           <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6">
-            Your Money, No Deductions. Your Business, No Barriers. <br />
+            Zero fees for end users, Seamless merchant payments. <br />
             <span className="text-[#CE1126]">Your Economy, Empowered.</span>
           </h1>
           <p className="text-white/60 text-xs mb-4">(*) Does not apply if you send money to another Financial institution.</p>
           <p className="text-xl text-slate-300 mb-4 max-w-2xl leading-relaxed">
-            Vitabirr &ndash; Zero fees for end users. Seamless merchant payments. Powering Ethiopian prosperity.
+            Vitabirr &ndash; Zero fees for end users, Seamless merchant payments. Powering Ethiopian prosperity.
           </p>
           <p className="text-lg text-white font-semibold mb-8 max-w-2xl">
             Register now and get your Vitabirr account active in minutes.
@@ -233,19 +234,6 @@ const Hero = () => {
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 text-lg h-14 px-8">
               Learn More
             </Button>
-          </div>
-
-          <div className="mt-12 flex items-center gap-6">
-            <div className="flex -space-x-3">
-              {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="w-12 h-12 rounded-full border-2 border-[#002147] bg-slate-400 overflow-hidden">
-                   <img src={`https://i.pravatar.cc/150?u=${i}`} alt="user" />
-                </div>
-              ))}
-            </div>
-            <p className="text-white/80 text-sm">
-              <span className="font-bold text-white">50k+</span> merchants already trading
-            </p>
           </div>
         </motion.div>
       </div>
@@ -471,7 +459,7 @@ const ImpactSection = () => {
               </p>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-slate-200 overflow-hidden">
-                   <img src="https://i.pravatar.cc/150?u=farmer" alt="Abebe" />
+                   <img src="https://storage.googleapis.com/dala-prod-public-storage/attachments/2b04cbc3-7457-4f8b-bed7-cf47a1dea9c2/1779231900233_abebe__kasaoun.png" alt="Abebe" />
                 </div>
                 <div>
                   <p className="font-bold text-[#002147]">Abebe Kassahun</p>
@@ -499,10 +487,10 @@ const ImpactSection = () => {
               </p>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-slate-200 overflow-hidden">
-                   <img src="https://i.pravatar.cc/150?u=aida" alt="Aida" />
+                   <img src="https://storage.googleapis.com/dala-prod-public-storage/attachments/2b04cbc3-7457-4f8b-bed7-cf47a1dea9c2/1779230558751_aida_said.png" alt="Aida" />
                 </div>
                 <div>
-                  <p className="font-bold text-[#002147]">Aida Bekele</p>
+                  <p className="font-bold text-[#002147]">Aida Said</p>
                   <p className="text-sm text-slate-500">Shop Owner, Addis Ababa</p>
                 </div>
               </div>
@@ -741,7 +729,7 @@ const Footer = () => {
             <h4 className="font-bold mb-6">Platform</h4>
             <ul className="space-y-4 text-slate-400 text-sm">
               <li><a href="#" className="hover:text-white transition-colors">Cross-Boundary Pay</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Merchant Solutions</a></li>
+              <li><Link to="/qr-solution" className="hover:text-white transition-colors">QR Solution</Link></li>
               <li><Link to="/vita-finance-bnpl" className="hover:text-white transition-colors">Vita Finance (BNPL)</Link></li>
               <li><Link to="/partner-funding" className="hover:text-white transition-colors">Partner Funding</Link></li>
             </ul>
@@ -844,6 +832,13 @@ function App() {
             <>
               <Navbar />
               <VitaFinanceBNPL />
+              <Footer />
+            </>
+          } />
+          <Route path="/qr-solution" element={
+            <>
+              <Navbar />
+              <VitabirrETSwitch />
               <Footer />
             </>
           } />
