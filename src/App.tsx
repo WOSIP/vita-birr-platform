@@ -43,6 +43,7 @@ import CookiePolicy from './pages/CookiePolicy.tsx';
 import PartnerFunding from './pages/PartnerFunding.tsx';
 import VitaFinanceBNPL from './pages/VitaFinanceBNPL.tsx';
 import VitabirrETSwitch from './pages/VitabirrETSwitch.tsx';
+import CareerPage from './pages/Career.tsx';
 
 // --- DATA ---
 const NAV_LINKS = [
@@ -728,7 +729,6 @@ const Footer = () => {
           <div>
             <h4 className="font-bold mb-6">Platform</h4>
             <ul className="space-y-4 text-slate-400 text-sm">
-              <li><a href="#" className="hover:text-white transition-colors">Cross-Boundary Pay</a></li>
               <li><Link to="/qr-solution" className="hover:text-white transition-colors">QR Solution</Link></li>
               <li><Link to="/vita-finance-bnpl" className="hover:text-white transition-colors">Vita Finance (BNPL)</Link></li>
               <li><Link to="/partner-funding" className="hover:text-white transition-colors">Partner Funding</Link></li>
@@ -741,7 +741,7 @@ const Footer = () => {
               <li><a href="#about" className="hover:text-white transition-colors">About Us</a></li>
               <li><a href="#team" className="hover:text-white transition-colors">Leadership</a></li>
               <li><a href="#blog" className="hover:text-white transition-colors">Insights</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
+              <li><Link to="/career" className="hover:text-white transition-colors">Careers</Link></li>
             </ul>
           </div>
 
@@ -839,6 +839,13 @@ function App() {
             <>
               <Navbar />
               <VitabirrETSwitch />
+              <Footer />
+            </>
+          } />
+          <Route path="/career" element={
+            <>
+              <Navbar />
+              <CareerPage />
               <Footer />
             </>
           } />
