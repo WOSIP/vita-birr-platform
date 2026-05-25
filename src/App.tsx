@@ -21,7 +21,8 @@ import {
   Facebook,
   Twitter,
   Linkedin,
-  Clock
+  Clock,
+  Globe
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -37,6 +38,7 @@ import {
   TableRow 
 } from '@/components/ui/table';
 import { Toaster, toast } from 'sonner';
+import { LanguageProvider, useLanguage, Language } from './i18n/LanguageContext';
 import PrivacyPolicy from './pages/PrivacyPolicy.tsx';
 import TermsOfService from './pages/TermsOfService.tsx';
 import CookiePolicy from './pages/CookiePolicy.tsx';
@@ -47,13 +49,13 @@ import CareerPage from './pages/Career.tsx';
 
 // --- DATA ---
 const NAV_LINKS = [
-  { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Comparison", href: "#comparison" },
-  { name: "Case Studies", href: "#impact" },
-  { name: "Team", href: "#team" },
-  { name: "Blog", href: "#blog" },
-  { name: "Contact", href: "#contact" }
+  { name: "about", href: "#about" },
+  { name: "services", href: "#services" },
+  { name: "comparison", href: "#comparison" },
+  { name: "caseStudies", href: "#impact" },
+  { name: "team", href: "#team" },
+  { name: "blog", href: "#blog" },
+  { name: "contact", href: "#contact" }
 ];
 
 const VALUES = [
@@ -114,6 +116,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === '/';
+  const { t, language, setLanguage } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -137,6 +140,13 @@ const Navbar = () => {
     }
   };
 
+  const toggleLanguage = () => {
+    const languages: Language[] = ['en', 'so', 'am', 'om'];
+    const currentIndex = languages.indexOf(language);
+    const nextIndex = (currentIndex + 1) % languages.length;
+    setLanguage(languages[nextIndex]);
+  };
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || !isHome ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'}`}>
       <div className="container mx-auto px-4 flex items-center justify-between">
@@ -155,12 +165,16 @@ const Navbar = () => {
               onClick={(e) => handleLinkClick(e, link.href)}
               className={`text-sm font-medium transition-colors hover:text-[#CE1126] ${isScrolled || !isHome ? 'text-[#002147]' : 'text-white'}`}
             >
-              {link.name}
+              {t.nav[link.name as keyof typeof t.nav]}
             </a>
           ))}
           <Button variant={isScrolled || !isHome ? "default" : "secondary"} className="bg-[#CE1126] text-white hover:bg-[#b00e20] border-none">
-            Get Started
+            {t.nav.getStarted}
           </Button>
+          <button onClick={toggleLanguage} className={`flex items-center gap-1 text-sm font-medium transition-colors hover:text-[#CE1126] ${isScrolled || !isHome ? 'text-[#002147]' : 'text-white'}`}>
+            <Globe className="w-4 h-4" />
+            {language.toUpperCase()}
+          </button>
         </div>
 
         <button className="md:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
@@ -184,10 +198,14 @@ const Navbar = () => {
                   onClick={(e) => handleLinkClick(e, link.href)}
                   className="text-lg font-medium text-[#002147] hover:text-[#CE1126]"
                 >
-                  {link.name}
+                  {t.nav[link.name as keyof typeof t.nav]}
                 </a>
               ))}
-              <Button className="bg-[#CE1126] text-white">Get Started</Button>
+              <Button className="bg-[#CE1126] text-white">{t.nav.getStarted}</Button>
+              <button onClick={toggleLanguage} className="flex items-center gap-2 text-lg font-medium text-[#002147] hover:text-[#CE1126]">
+                <Globe className="w-5 h-5" />
+                {language === 'en' ? 'Somali' : language === 'so' ? 'Amharic' : language === 'am' ? 'Afaan Oromoo' : 'English'}
+              </button>
             </div>
           </motion.div>
         )}
@@ -197,6 +215,7 @@ const Navbar = () => {
 };
 
 const Hero = () => {
+  const { t } = useLanguage();
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-[#002147]">
       <div className="absolute inset-0 z-0">
@@ -215,25 +234,25 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="max-w-3xl"
         >
-          <Badge className="mb-4 bg-[#CE1126] hover:bg-[#CE1126] text-white px-3 py-1 text-sm">Beyond Banking</Badge>
+          <Badge className="mb-4 bg-[#CE1126] hover:bg-[#CE1126] text-white px-3 py-1 text-sm">{t.hero.badge}</Badge>
           <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6">
-            Zero fees for end users, Seamless merchant payments. <br />
-            <span className="text-[#CE1126]">Your Economy, Empowered.</span>
+            {t.hero.title1} <br />
+            <span className="text-[#CE1126]">{t.hero.title2}</span>
           </h1>
           <p className="text-white/60 text-xs mb-4">(*) Does not apply if you send money to another Financial institution.</p>
           <p className="text-xl text-slate-300 mb-4 max-w-2xl leading-relaxed">
-            Vitabirr &ndash; Zero fees for end users, Seamless merchant payments. Powering Ethiopian prosperity.
+            {t.hero.subtitle}
           </p>
           <p className="text-lg text-white font-semibold mb-8 max-w-2xl">
-            Register now and get your Vitabirr account active in minutes.
+            {t.hero.cta}
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button size="lg" className="bg-[#CE1126] hover:bg-[#b00e20] text-white text-lg h-14 px-8">
-              Register & Explore the Portal
+              {t.hero.registerBtn}
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 text-lg h-14 px-8">
-              Learn More
+              {t.hero.learnMore}
             </Button>
           </div>
         </motion.div>
@@ -710,6 +729,7 @@ const ContactSection = () => {
 };
 
 const Footer = () => {
+  const { t } = useLanguage();
   return (
     <footer className="bg-[#002147] text-white pt-20 pb-10 border-t border-white/10">
       <div className="container mx-auto px-4">
@@ -727,30 +747,30 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-bold mb-6">Platform</h4>
+            <h4 className="font-bold mb-6">{t.footer.platform}</h4>
             <ul className="space-y-4 text-slate-400 text-sm">
-              <li><Link to="/qr-solution" className="hover:text-white transition-colors">QR Solution</Link></li>
-              <li><Link to="/vita-finance-bnpl" className="hover:text-white transition-colors">Vita Finance (BNPL)</Link></li>
-              <li><Link to="/partner-funding" className="hover:text-white transition-colors">Partner Funding</Link></li>
+              <li><Link to="/qr-solution" className="hover:text-white transition-colors">{t.footer.qrSolution}</Link></li>
+              <li><Link to="/vita-finance-bnpl" className="hover:text-white transition-colors">{t.footer.vitaFinance}</Link></li>
+              <li><Link to="/partner-funding" className="hover:text-white transition-colors">{t.footer.partnerFunding}</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-bold mb-6">Company</h4>
+            <h4 className="font-bold mb-6">{t.footer.company}</h4>
             <ul className="space-y-4 text-slate-400 text-sm">
-              <li><a href="#about" className="hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#team" className="hover:text-white transition-colors">Leadership</a></li>
-              <li><a href="#blog" className="hover:text-white transition-colors">Insights</a></li>
-              <li><Link to="/career" className="hover:text-white transition-colors">Careers</Link></li>
+              <li><a href="#about" className="hover:text-white transition-colors">{t.footer.aboutUs}</a></li>
+              <li><a href="#team" className="hover:text-white transition-colors">{t.footer.leadership}</a></li>
+              <li><a href="#blog" className="hover:text-white transition-colors">{t.footer.insights}</a></li>
+              <li><Link to="/career" className="hover:text-white transition-colors">{t.footer.careers}</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-bold mb-6">Newsletter</h4>
-            <p className="text-slate-400 text-sm mb-4">Stay updated with Ethiopia's economic progress.</p>
+            <h4 className="font-bold mb-6">{t.footer.newsletter}</h4>
+            <p className="text-slate-400 text-sm mb-4">{t.footer.newsletterDesc}</p>
             <div className="flex gap-2">
               <Input placeholder="Email" className="bg-white/5 border-white/10 text-white" />
-              <Button className="bg-[#CE1126] hover:bg-[#b00e20]">Join</Button>
+              <Button className="bg-[#CE1126] hover:bg-[#b00e20]">{t.footer.join}</Button>
             </div>
           </div>
         </div>
@@ -761,9 +781,9 @@ const Footer = () => {
             Regulated under the National Bank of Ethiopia.
           </p>
           <div className="flex gap-8 text-xs text-slate-500">
-            <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link to="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
-            <Link to="/cookie-policy" className="hover:text-white transition-colors">Cookie Policy</Link>
+            <Link to="/privacy-policy" className="hover:text-white transition-colors">{t.footer.privacy}</Link>
+            <Link to="/terms-of-service" className="hover:text-white transition-colors">{t.footer.terms}</Link>
+            <Link to="/cookie-policy" className="hover:text-white transition-colors">{t.footer.cookies}</Link>
           </div>
         </div>
       </div>
@@ -794,64 +814,66 @@ const HomePage = () => {
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="min-h-screen bg-white font-sans selection:bg-[#CE1126] selection:text-white">
-        <Toaster position="top-center" richColors />
-        
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/privacy-policy" element={
-            <>
-              <Navbar />
-              <PrivacyPolicy />
-              <Footer />
-            </>
-          } />
-          <Route path="/terms-of-service" element={
-            <>
-              <Navbar />
-              <TermsOfService />
-              <Footer />
-            </>
-          } />
-          <Route path="/cookie-policy" element={
-            <>
-              <Navbar />
-              <CookiePolicy />
-              <Footer />
-            </>
-          } />
-          <Route path="/partner-funding" element={
-            <>
-              <Navbar />
-              <PartnerFunding />
-              <Footer />
-            </>
-          } />
-          <Route path="/vita-finance-bnpl" element={
-            <>
-              <Navbar />
-              <VitaFinanceBNPL />
-              <Footer />
-            </>
-          } />
-          <Route path="/qr-solution" element={
-            <>
-              <Navbar />
-              <VitabirrETSwitch />
-              <Footer />
-            </>
-          } />
-          <Route path="/career" element={
-            <>
-              <Navbar />
-              <CareerPage />
-              <Footer />
-            </>
-          } />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <LanguageProvider>
+      <BrowserRouter>
+        <div className="min-h-screen bg-white font-sans selection:bg-[#CE1126] selection:text-white">
+          <Toaster position="top-center" richColors />
+          
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/privacy-policy" element={
+              <>
+                <Navbar />
+                <PrivacyPolicy />
+                <Footer />
+              </>
+            } />
+            <Route path="/terms-of-service" element={
+              <>
+                <Navbar />
+                <TermsOfService />
+                <Footer />
+              </>
+            } />
+            <Route path="/cookie-policy" element={
+              <>
+                <Navbar />
+                <CookiePolicy />
+                <Footer />
+              </>
+            } />
+            <Route path="/partner-funding" element={
+              <>
+                <Navbar />
+                <PartnerFunding />
+                <Footer />
+              </>
+            } />
+            <Route path="/vita-finance-bnpl" element={
+              <>
+                <Navbar />
+                <VitaFinanceBNPL />
+                <Footer />
+              </>
+            } />
+            <Route path="/qr-solution" element={
+              <>
+                <Navbar />
+                <VitabirrETSwitch />
+                <Footer />
+              </>
+            } />
+            <Route path="/career" element={
+              <>
+                <Navbar />
+                <CareerPage />
+                <Footer />
+              </>
+            } />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </LanguageProvider>
   );
 }
 
