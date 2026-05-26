@@ -2,8 +2,10 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle2, ShieldCheck, Smartphone, QrCode } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const VitabirrETSwitch = () => {
+  const { t } = useLanguage();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -13,13 +15,13 @@ const VitabirrETSwitch = () => {
       {/* Hero Section */}
       <section className="bg-[#002147] text-white py-20 px-4">
         <div className="container mx-auto max-w-4xl text-center">
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-6">One Dynamic QR. Any Bank. Zero Fees.</h1>
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-6">{t.qrPage.heroTitle}</h1>
           <p className="text-xl md:text-2xl text-slate-300 mb-8">
-            Send, receive, and pay with any bank in Ethiopia – using a single dynamic QR code. No amount entry needed. Just confirm.
+            {t.qrPage.heroDesc}
           </p>
           <Link to="/">
             <Button size="lg" className="bg-[#CE1126] hover:bg-[#b00e20] text-white text-lg h-14 px-8">
-              Register Now <ArrowRight className="ml-2 w-5 h-5" />
+              {t.qrPage.registerBtn} <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
           </Link>
         </div>
@@ -28,9 +30,9 @@ const VitabirrETSwitch = () => {
       {/* What is it? */}
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl font-bold text-[#002147] mb-6">What is the Vitabirr ETSwitch Dynamic QR?</h2>
+          <h2 className="text-3xl font-bold text-[#002147] mb-6">{t.qrPage.whatIsTitle}</h2>
           <p className="text-lg text-slate-600 leading-relaxed mb-6">
-            Vitabirr has integrated with ETSwitch, Ethiopia's national interoperable payment switch, to offer a dynamic QR code – a smart QR code that contains the exact payment amount within it. When scanned, the end user does not need to type the amount. They simply confirm with PIN or fingerprint, and the transfer is complete.
+            {t.qrPage.whatIsDesc}
           </p>
           
           {/* Illustration 1: Mobile Payment / QR Scanning */}
@@ -46,16 +48,16 @@ const VitabirrETSwitch = () => {
           </div>
 
           <p className="text-lg text-slate-600 leading-relaxed mb-6">
-            This QR code works bidirectionally:
+            {t.qrPage.bidirectionalDesc}
           </p>
           <ul className="space-y-4 mb-8">
             <li className="flex items-start gap-3">
               <CheckCircle2 className="text-[#CE1126] w-6 h-6 mt-1 flex-shrink-0" />
-              <span className="text-slate-700"><strong>Merchant to customer:</strong> Customer scans and pays.</span>
+              <span className="text-slate-700"><strong>{t.qrPage.merchantToCustomer.split(':')[0]}:</strong> {t.qrPage.merchantToCustomer.split(':')[1]}</span>
             </li>
             <li className="flex items-start gap-3">
               <CheckCircle2 className="text-[#CE1126] w-6 h-6 mt-1 flex-shrink-0" />
-              <span className="text-slate-700"><strong>Customer to customer:</strong> Anyone with any bank app can scan a Vitabirr user's QR code to send money directly into that user's Vitabirr wallet – from any bank account.</span>
+              <span className="text-slate-700"><strong>{t.qrPage.customerToCustomer.split(':')[0]}:</strong> {t.qrPage.customerToCustomer.split(':')[1]}</span>
             </li>
           </ul>
         </div>
@@ -64,35 +66,35 @@ const VitabirrETSwitch = () => {
       {/* Key Capabilities */}
       <section className="py-16 px-4 bg-slate-50">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl font-bold text-[#002147] mb-8">Key Capabilities</h2>
+          <h2 className="text-3xl font-bold text-[#002147] mb-8">{t.qrPage.keyCapabilitiesTitle}</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="bg-[#002147] text-white">
-                  <th className="p-4 rounded-tl-lg">Capability</th>
-                  <th className="p-4 rounded-tr-lg">How It Works</th>
+                  <th className="p-4 rounded-tl-lg">{t.qrPage.capability}</th>
+                  <th className="p-4 rounded-tr-lg">{t.qrPage.howItWorks}</th>
                 </tr>
               </thead>
               <tbody className="bg-white">
                 <tr className="border-b border-slate-200">
-                  <td className="p-4 font-semibold text-[#002147]">Dynamic QR with amount</td>
-                  <td className="p-4 text-slate-600">The QR code contains the exact amount to be paid – no manual entry needed.</td>
+                  <td className="p-4 font-semibold text-[#002147]">{t.qrPage.dynamicQrAmount}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.dynamicQrAmountDesc}</td>
                 </tr>
                 <tr className="border-b border-slate-200">
-                  <td className="p-4 font-semibold text-[#002147]">One-tap confirmation</td>
-                  <td className="p-4 text-slate-600">Just confirm with PIN or fingerprint – payment completes instantly.</td>
+                  <td className="p-4 font-semibold text-[#002147]">{t.qrPage.oneTapConfirm}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.oneTapConfirmDesc}</td>
                 </tr>
                 <tr className="border-b border-slate-200">
-                  <td className="p-4 font-semibold text-[#002147]">Receive from any bank</td>
-                  <td className="p-4 text-slate-600">Your Vitabirr QR code can be scanned by any bank's app (CBE, Dashen, Awash, Hibret, etc.) to send you money.</td>
+                  <td className="p-4 font-semibold text-[#002147]">{t.qrPage.receiveAnyBank}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.receiveAnyBankDesc}</td>
                 </tr>
                 <tr className="border-b border-slate-200">
-                  <td className="p-4 font-semibold text-[#002147]">Pay to any bank</td>
-                  <td className="p-4 text-slate-600">Scan any ETSwitch QR code with Vitabirr to pay merchants or individuals.</td>
+                  <td className="p-4 font-semibold text-[#002147]">{t.qrPage.payAnyBank}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.payAnyBankDesc}</td>
                 </tr>
                 <tr>
-                  <td className="p-4 font-semibold text-[#002147]">Zero fees for end users</td>
-                  <td className="p-4 text-slate-600">Always – sending or receiving.</td>
+                  <td className="p-4 font-semibold text-[#002147]">{t.qrPage.zeroFeesEndUser}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.zeroFeesEndUserDesc}</td>
                 </tr>
               </tbody>
             </table>
@@ -103,15 +105,15 @@ const VitabirrETSwitch = () => {
       {/* Benefits for End Users */}
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl font-bold text-[#002147] mb-8">Benefits for End Users</h2>
+          <h2 className="text-3xl font-bold text-[#002147] mb-8">{t.qrPage.benefitsEndUserTitle}</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {[
-              { title: "No amount typing", desc: "The QR code knows the amount. Scan, confirm, done." },
-              { title: "Receive money from anyone", desc: "Friends, family, or customers with any bank app can send to your Vitabirr wallet by scanning your QR code." },
-              { title: "Send money to anyone", desc: "Scan their ETSwitch QR code with your Vitabirr app – zero fees." },
-              { title: "Biometric security", desc: "Confirm payments with your fingerprint – faster and safer than typing a PIN." },
-              { title: "One QR for everything", desc: "The same QR code works for receiving payments, sending payments, and merchant checkouts." },
-              { title: "Zero fees always", desc: "No transaction costs for sending or receiving – ever." }
+              { title: t.qrPage.noAmountTyping, desc: t.qrPage.noAmountTypingDesc },
+              { title: t.qrPage.receiveAnyone, desc: t.qrPage.receiveAnyoneDesc },
+              { title: t.qrPage.sendAnyone, desc: t.qrPage.sendAnyoneDesc },
+              { title: t.qrPage.biometricSecurity, desc: t.qrPage.biometricSecurityDesc },
+              { title: t.qrPage.oneQrEverything, desc: t.qrPage.oneQrEverythingDesc },
+              { title: t.qrPage.zeroFeesAlways, desc: t.qrPage.zeroFeesAlwaysDesc }
             ].map((item, i) => (
               <div key={i} className="bg-white p-6 rounded-xl shadow-md border border-slate-100">
                 <h3 className="text-xl font-bold text-[#002147] mb-2">{item.title}</h3>
@@ -125,14 +127,14 @@ const VitabirrETSwitch = () => {
       {/* Benefits for Merchants */}
       <section className="py-16 px-4 bg-slate-50">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl font-bold text-[#002147] mb-8">Benefits for Merchants</h2>
+          <h2 className="text-3xl font-bold text-[#002147] mb-8">{t.qrPage.benefitsMerchantTitle}</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {[
-              { title: "Faster checkout", desc: "Customer scans, confirms with fingerprint, done – no amount entry." },
-              { title: "No errors", desc: "Amount is embedded in the QR – no risk of customer typing the wrong number." },
-              { title: "Accept from any bank", desc: "One dynamic QR accepts payments from CBE Birr, Telebirr, HelloCash, Kacha, and every bank app." },
-              { title: "Receive payments instantly", desc: "Funds settle immediately in your Vitabirr merchant account." },
-              { title: "Easiest payment collection", desc: "No cash, no card machine, no manual reconciliation." }
+              { title: t.qrPage.fasterCheckout, desc: t.qrPage.fasterCheckoutDesc },
+              { title: t.qrPage.noErrors, desc: t.qrPage.noErrorsDesc },
+              { title: t.qrPage.acceptAnyBank, desc: t.qrPage.acceptAnyBankDesc },
+              { title: t.qrPage.receiveInstantly, desc: t.qrPage.receiveInstantlyDesc },
+              { title: t.qrPage.easiestCollection, desc: t.qrPage.easiestCollectionDesc }
             ].map((item, i) => (
               <div key={i} className="bg-white p-6 rounded-xl shadow-md border border-slate-100">
                 <h3 className="text-xl font-bold text-[#002147] mb-2">{item.title}</h3>
@@ -146,32 +148,32 @@ const VitabirrETSwitch = () => {
       {/* How It Works */}
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl font-bold text-[#002147] mb-8">How It Works: End User Step-by-Step</h2>
+          <h2 className="text-3xl font-bold text-[#002147] mb-8">{t.qrPage.howItWorksStepTitle}</h2>
           
           <div className="mb-12">
-            <h3 className="text-2xl font-bold text-[#CE1126] mb-4">Scenario A: End User PAYING a merchant (dynamic QR with amount)</h3>
+            <h3 className="text-2xl font-bold text-[#CE1126] mb-4">{t.qrPage.scenarioA}</h3>
             <ol className="space-y-4 list-decimal list-inside text-slate-700">
-              <li>Merchant enters the amount (e.g., 350 Birr) on their Vitabirr merchant app or POS. The system generates a dynamic QR code containing exactly 350 Birr.</li>
-              <li>Customer opens Vitabirr app and taps "Scan QR."</li>
-              <li>Customer scans the merchant's dynamic QR code. Screen displays: "Pay 350 Birr to [Merchant Name]?"</li>
-              <li>Customer confirms using PIN or fingerprint.</li>
-              <li>Payment processes instantly via ETSwitch. "Payment successful! 350 Birr sent."</li>
-              <li>Merchant receives instant notification. Funds available immediately.</li>
+              <li>{t.qrPage.scenarioA1}</li>
+              <li>{t.qrPage.scenarioA2}</li>
+              <li>{t.qrPage.scenarioA3}</li>
+              <li>{t.qrPage.scenarioA4}</li>
+              <li>{t.qrPage.scenarioA5}</li>
+              <li>{t.qrPage.scenarioA6}</li>
             </ol>
-            <p className="mt-4 font-semibold text-[#002147]">Total time: Under 5 seconds. No typing. No errors.</p>
+            <p className="mt-4 font-semibold text-[#002147]">{t.qrPage.scenarioATime}</p>
           </div>
 
           <div>
-            <h3 className="text-2xl font-bold text-[#CE1126] mb-4">Scenario B: End User RECEIVING money from any bank app (e.g., a friend using CBE Birr)</h3>
+            <h3 className="text-2xl font-bold text-[#CE1126] mb-4">{t.qrPage.scenarioB}</h3>
             <ol className="space-y-4 list-decimal list-inside text-slate-700">
-              <li>Vitabirr user opens their app and displays their personal dynamic QR code.</li>
-              <li>Friend opens their bank's app (e.g., CBE Birr, Dashen, Awash, Telebirr – any ETSwitch-enabled app).</li>
-              <li>Friend scans the Vitabirr user's QR code. Their app displays: "Send to [Vitabirr User Name]?" with amount field.</li>
-              <li>Friend enters amount (e.g., 500 Birr) and confirms. Payment processed via ETSwitch.</li>
-              <li>Vitabirr user receives instant notification – funds added to wallet. "500 Birr received from [Friend Name]"</li>
+              <li>{t.qrPage.scenarioB1}</li>
+              <li>{t.qrPage.scenarioB2}</li>
+              <li>{t.qrPage.scenarioB3}</li>
+              <li>{t.qrPage.scenarioB4}</li>
+              <li>{t.qrPage.scenarioB5}</li>
             </ol>
-            <p className="mt-4 font-semibold text-[#002147]">Zero fees deducted. Full 500 Birr arrives. Wallet balance updates instantly.</p>
-            <p className="mt-2 text-slate-600">Result: Anyone with any bank app can send money to a Vitabirr user. The Vitabirr user pays zero fees to receive.</p>
+            <p className="mt-4 font-semibold text-[#002147]">{t.qrPage.scenarioBZeroFees}</p>
+            <p className="mt-2 text-slate-600">{t.qrPage.scenarioBResult}</p>
           </div>
         </div>
       </section>
@@ -179,54 +181,54 @@ const VitabirrETSwitch = () => {
       {/* Dynamic QR vs Static QR */}
       <section className="py-16 px-4 bg-slate-50">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl font-bold text-[#002147] mb-8">Dynamic QR vs. Static QR: What's the Difference?</h2>
+          <h2 className="text-3xl font-bold text-[#002147] mb-8">{t.qrPage.dynamicVsStaticTitle}</h2>
           <div className="overflow-x-auto mb-6">
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="bg-[#002147] text-white">
-                  <th className="p-4 rounded-tl-lg">Feature</th>
-                  <th className="p-4">Static QR Code</th>
-                  <th className="p-4 rounded-tr-lg">Dynamic QR Code (Vitabirr + ETSwitch)</th>
+                  <th className="p-4 rounded-tl-lg">{t.qrPage.feature}</th>
+                  <th className="p-4">{t.qrPage.staticQr}</th>
+                  <th className="p-4 rounded-tr-lg">{t.qrPage.dynamicQr}</th>
                 </tr>
               </thead>
               <tbody className="bg-white">
                 <tr className="border-b border-slate-200">
-                  <td className="p-4 font-semibold text-[#002147]">Amount pre-set?</td>
-                  <td className="p-4 text-slate-600">No – user types amount each time</td>
-                  <td className="p-4 text-slate-600">Yes – amount embedded in the code</td>
+                  <td className="p-4 font-semibold text-[#002147]">{t.qrPage.amountPreset}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.amountPresetStatic}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.amountPresetDynamic}</td>
                 </tr>
                 <tr className="border-b border-slate-200">
-                  <td className="p-4 font-semibold text-[#002147]">Typing required?</td>
-                  <td className="p-4 text-slate-600">Yes – user must enter amount</td>
-                  <td className="p-4 text-slate-600">No – just confirm with PIN/fingerprint</td>
+                  <td className="p-4 font-semibold text-[#002147]">{t.qrPage.typingRequired}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.typingRequiredStatic}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.typingRequiredDynamic}</td>
                 </tr>
                 <tr className="border-b border-slate-200">
-                  <td className="p-4 font-semibold text-[#002147]">Error risk</td>
-                  <td className="p-4 text-slate-600">Medium (wrong amount possible)</td>
-                  <td className="p-4 text-slate-600">Zero (amount is fixed in the QR)</td>
+                  <td className="p-4 font-semibold text-[#002147]">{t.qrPage.errorRisk}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.errorRiskStatic}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.errorRiskDynamic}</td>
                 </tr>
                 <tr className="border-b border-slate-200">
-                  <td className="p-4 font-semibold text-[#002147]">Speed</td>
-                  <td className="p-4 text-slate-600">Slower (typing + confirmation)</td>
-                  <td className="p-4 text-slate-600">Faster (one confirmation only)</td>
+                  <td className="p-4 font-semibold text-[#002147]">{t.qrPage.speed}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.speedStatic}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.speedDynamic}</td>
                 </tr>
                 <tr className="border-b border-slate-200">
-                  <td className="p-4 font-semibold text-[#002147]">Best for</td>
-                  <td className="p-4 text-slate-600">Variable amounts (e.g., friends splitting bills)</td>
-                  <td className="p-4 text-slate-600">Fixed transactions (e.g., merchant checkout, bill payment)</td>
+                  <td className="p-4 font-semibold text-[#002147]">{t.qrPage.bestFor}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.bestForStatic}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.bestForDynamic}</td>
                 </tr>
                 <tr>
-                  <td className="p-4 font-semibold text-[#002147]">Receive from any bank?</td>
-                  <td className="p-4 text-slate-600">Yes (if user displays QR code)</td>
-                  <td className="p-4 text-slate-600">Yes – works identically</td>
+                  <td className="p-4 font-semibold text-[#002147]">{t.qrPage.receiveAnyBankQ}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.receiveAnyBankStatic}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.receiveAnyBankDynamic}</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <p className="text-slate-700">
-            <strong>Vitabirr supports both:</strong><br />
-            • Dynamic QR for merchants and fixed-amount payments<br />
-            • Static QR for personal receiving (friend can enter any amount)
+            <strong>{t.qrPage.supportsBoth}</strong><br />
+            • {t.qrPage.dynamicQrFor}<br />
+            • {t.qrPage.staticQrFor}
           </p>
         </div>
       </section>
@@ -234,23 +236,23 @@ const VitabirrETSwitch = () => {
       {/* Real-Life Examples */}
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl font-bold text-[#002147] mb-8">Real-Life Examples</h2>
+          <h2 className="text-3xl font-bold text-[#002147] mb-8">{t.qrPage.realLifeExamplesTitle}</h2>
           
           <div className="mb-10 p-6 bg-white rounded-xl shadow-md border-l-4 border-[#CE1126]">
-            <h3 className="text-xl font-bold text-[#002147] mb-3">Example 1: Paying a Merchant</h3>
+            <h3 className="text-xl font-bold text-[#002147] mb-3">{t.qrPage.example1Title}</h3>
             
-            <p className="text-slate-600 mb-2">Azeb runs a small grocery shop in Addis Ababa. A customer buys 450 Birr of goods.</p>
-            <p className="text-slate-700"><strong>Old way:</strong> Customer opens app, scans QR, types "450", confirms, waits.</p>
-            <p className="text-slate-700"><strong>Vitabirr way:</strong> Azeb enters "450" on her Vitabirr merchant app. A dynamic QR appears. Customer scans with Vitabirr, confirms with fingerprint, and payment is done in 3 seconds.</p>
-            <p className="mt-2 font-semibold text-[#002147]">Customer pays zero fees. Azeb gets paid instantly.</p>
+            <p className="text-slate-600 mb-2">{t.qrPage.example1Desc}</p>
+            <p className="text-slate-700"><strong>{t.qrPage.oldWay}</strong> {t.qrPage.oldWay1}</p>
+            <p className="text-slate-700"><strong>{t.qrPage.vitabirrWay}</strong> {t.qrPage.vitabirrWay1}</p>
+            <p className="mt-2 font-semibold text-[#002147]">{t.qrPage.example1Result}</p>
           </div>
 
           <div className="p-6 bg-white rounded-xl shadow-md border-l-4 border-[#CE1126]">
-            <h3 className="text-xl font-bold text-[#002147] mb-3">Example 2: Receiving Money from a Family Member</h3>
-            <p className="text-slate-600 mb-2">Tsegaye is a student in Jimma. His mother in Addis uses CBE Birr (a different bank).</p>
-            <p className="text-slate-700"><strong>Old way:</strong> Mother needs Tsegaye's bank account number, branch, and full name. Transfer takes 24 hours and has fees.</p>
-            <p className="text-slate-700"><strong>Vitabirr way:</strong> Tsegaye opens Vitabirr and shows his personal dynamic QR code via WhatsApp. Mother opens CBE Birr, scans the QR code, enters 1,000 Birr, and confirms. Tsegaye receives the money instantly in his Vitabirr wallet.</p>
-            <p className="mt-2 font-semibold text-[#002147]">Tsegaye pays zero fees to receive. Mother pays her bank's standard send fee – but Tsegaye keeps every Birr.</p>
+            <h3 className="text-xl font-bold text-[#002147] mb-3">{t.qrPage.example2Title}</h3>
+            <p className="text-slate-600 mb-2">{t.qrPage.example2Desc}</p>
+            <p className="text-slate-700"><strong>{t.qrPage.oldWay}</strong> {t.qrPage.oldWay2}</p>
+            <p className="text-slate-700"><strong>{t.qrPage.vitabirrWay}</strong> {t.qrPage.vitabirrWay2}</p>
+            <p className="mt-2 font-semibold text-[#002147]">{t.qrPage.example2Result}</p>
           </div>
         </div>
       </section>
@@ -258,83 +260,83 @@ const VitabirrETSwitch = () => {
       {/* Security */}
       <section className="py-16 px-4 bg-slate-50">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl font-bold text-[#002147] mb-8">Security: PIN and Biometric Confirmation</h2>
-          <p className="text-slate-600 mb-6">Vitabirr offers two confirmation methods – user chooses:</p>
+          <h2 className="text-3xl font-bold text-[#002147] mb-8">{t.qrPage.securityTitle}</h2>
+          <p className="text-slate-600 mb-6">{t.qrPage.securityDesc}</p>
           <div className="overflow-x-auto mb-6">
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="bg-[#002147] text-white">
-                  <th className="p-4 rounded-tl-lg">Method</th>
-                  <th className="p-4">How It Works</th>
-                  <th className="p-4 rounded-tr-lg">Best For</th>
+                  <th className="p-4 rounded-tl-lg">{t.qrPage.method}</th>
+                  <th className="p-4">{t.qrPage.howItWorks}</th>
+                  <th className="p-4 rounded-tr-lg">{t.qrPage.bestFor}</th>
                 </tr>
               </thead>
               <tbody className="bg-white">
                 <tr className="border-b border-slate-200">
-                  <td className="p-4 font-semibold text-[#002147]">PIN (Personal Identification Number)</td>
-                  <td className="p-4 text-slate-600">User enters a 4-6 digit code to confirm each transaction</td>
-                  <td className="p-4 text-slate-600">Users without fingerprint sensors on their phone</td>
+                  <td className="p-4 font-semibold text-[#002147]">{t.qrPage.pinMethod}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.pinMethodDesc}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.pinMethodBest}</td>
                 </tr>
                 <tr>
-                  <td className="p-4 font-semibold text-[#002147]">Biometric (Fingerprint)</td>
-                  <td className="p-4 text-slate-600">User touches the phone's fingerprint sensor to confirm</td>
-                  <td className="p-4 text-slate-600">Speed, convenience, and enhanced security</td>
+                  <td className="p-4 font-semibold text-[#002147]">{t.qrPage.biometricMethod}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.biometricMethodDesc}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.biometricMethodBest}</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p className="text-slate-600">Both methods are fully encrypted and comply with National Bank of Ethiopia security standards.</p>
+          <p className="text-slate-600">{t.qrPage.securityCompliance}</p>
         </div>
       </section>
 
       {/* Summary Comparison */}
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl font-bold text-[#002147] mb-8">Summary Comparison Table</h2>
+          <h2 className="text-3xl font-bold text-[#002147] mb-8">{t.qrPage.summaryComparisonTitle}</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="bg-[#002147] text-white">
-                  <th className="p-4 rounded-tl-lg">Feature</th>
-                  <th className="p-4">Vitabirr + ETSwitch Dynamic QR</th>
-                  <th className="p-4 rounded-tr-lg">Other Ethiopian Mobile Money</th>
+                  <th className="p-4 rounded-tl-lg">{t.qrPage.feature}</th>
+                  <th className="p-4">{t.qrPage.vitabirrEtswitch}</th>
+                  <th className="p-4 rounded-tr-lg">{t.qrPage.otherMobileMoney}</th>
                 </tr>
               </thead>
               <tbody className="bg-white">
                 <tr className="border-b border-slate-200">
-                  <td className="p-4 font-semibold text-[#002147]">Dynamic QR with amount embedded</td>
-                  <td className="p-4 text-slate-600">Yes – no typing needed</td>
-                  <td className="p-4 text-slate-600">Rarely</td>
+                  <td className="p-4 font-semibold text-[#002147]">{t.qrPage.dynamicQrEmbedded}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.dynamicQrEmbeddedVitabirr}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.dynamicQrEmbeddedOther}</td>
                 </tr>
                 <tr className="border-b border-slate-200">
-                  <td className="p-4 font-semibold text-[#002147]">Confirm with fingerprint</td>
-                  <td className="p-4 text-slate-600">Yes</td>
-                  <td className="p-4 text-slate-600">Mostly PIN only</td>
+                  <td className="p-4 font-semibold text-[#002147]">{t.qrPage.confirmFingerprint}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.confirmFingerprintVitabirr}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.confirmFingerprintOther}</td>
                 </tr>
                 <tr className="border-b border-slate-200">
-                  <td className="p-4 font-semibold text-[#002147]">Receive money from any bank app</td>
-                  <td className="p-4 text-slate-600">Yes – scan QR with CBE, Dashen, Telebirr, etc.</td>
-                  <td className="p-4 text-slate-600">Limited interoperability</td>
+                  <td className="p-4 font-semibold text-[#002147]">{t.qrPage.receiveAnyBankApp}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.receiveAnyBankAppVitabirr}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.receiveAnyBankAppOther}</td>
                 </tr>
                 <tr className="border-b border-slate-200">
-                  <td className="p-4 font-semibold text-[#002147]">Send money to any bank user</td>
-                  <td className="p-4 text-slate-600">Yes – scan their ETSwitch QR</td>
-                  <td className="p-4 text-slate-600">Limited</td>
+                  <td className="p-4 font-semibold text-[#002147]">{t.qrPage.sendAnyBankUser}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.sendAnyBankUserVitabirr}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.sendAnyBankUserOther}</td>
                 </tr>
                 <tr className="border-b border-slate-200">
-                  <td className="p-4 font-semibold text-[#002147]">End user fees (sending/receiving)</td>
-                  <td className="p-4 text-slate-600">Zero</td>
-                  <td className="p-4 text-slate-600">Typically 1%+</td>
+                  <td className="p-4 font-semibold text-[#002147]">{t.qrPage.endUserFees}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.endUserFeesVitabirr}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.endUserFeesOther}</td>
                 </tr>
                 <tr className="border-b border-slate-200">
-                  <td className="p-4 font-semibold text-[#002147]">Merchant checkout speed</td>
-                  <td className="p-4 text-slate-600">Under 5 seconds</td>
-                  <td className="p-4 text-slate-600">10-20 seconds (typing amount)</td>
+                  <td className="p-4 font-semibold text-[#002147]">{t.qrPage.merchantSpeed}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.merchantSpeedVitabirr}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.merchantSpeedOther}</td>
                 </tr>
                 <tr>
-                  <td className="p-4 font-semibold text-[#002147]">Works without internet?</td>
-                  <td className="p-4 text-slate-600">Yes – USSD fallback</td>
-                  <td className="p-4 text-slate-600">Varies</td>
+                  <td className="p-4 font-semibold text-[#002147]">{t.qrPage.worksNoInternet}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.worksNoInternetVitabirr}</td>
+                  <td className="p-4 text-slate-600">{t.qrPage.worksNoInternetOther}</td>
                 </tr>
               </tbody>
             </table>
@@ -345,46 +347,46 @@ const VitabirrETSwitch = () => {
       {/* Final Summary Box */}
       <section className="py-16 px-4 bg-[#002147] text-white">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl font-bold mb-8">Final Summary</h2>
+          <h2 className="text-3xl font-bold mb-8">{t.qrPage.finalSummaryTitle}</h2>
           <div className="overflow-x-auto mb-8">
             <table className="w-full text-left border-collapse bg-white/10">
               <thead>
                 <tr className="border-b border-white/20">
-                  <th className="p-4">You Want To...</th>
-                  <th className="p-4">How Vitabirr + ETSwitch QR Helps</th>
+                  <th className="p-4">{t.qrPage.youWantTo}</th>
+                  <th className="p-4">{t.qrPage.howVitabirrHelps}</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="border-b border-white/20">
-                  <td className="p-4 font-semibold">Pay a merchant</td>
-                  <td className="p-4">Scan their dynamic QR – amount pre-filled – confirm with fingerprint – zero fees</td>
+                  <td className="p-4 font-semibold">{t.qrPage.payMerchant}</td>
+                  <td className="p-4">{t.qrPage.payMerchantDesc}</td>
                 </tr>
                 <tr className="border-b border-white/20">
-                  <td className="p-4 font-semibold">Receive money from any bank user</td>
-                  <td className="p-4">Show your personal QR – they scan with their bank app – you receive instantly – zero fees for you</td>
+                  <td className="p-4 font-semibold">{t.qrPage.receiveMoney}</td>
+                  <td className="p-4">{t.qrPage.receiveMoneyDesc}</td>
                 </tr>
                 <tr className="border-b border-white/20">
-                  <td className="p-4 font-semibold">Send money to anyone</td>
-                  <td className="p-4">Scan their QR – enter amount – confirm – zero fees for you</td>
+                  <td className="p-4 font-semibold">{t.qrPage.sendMoney}</td>
+                  <td className="p-4">{t.qrPage.sendMoneyDesc}</td>
                 </tr>
                 <tr>
-                  <td className="p-4 font-semibold">Get paid instantly as a merchant</td>
-                  <td className="p-4">Generate a dynamic QR with the amount – customer scans and confirms – funds arrive immediately</td>
+                  <td className="p-4 font-semibold">{t.qrPage.getPaidInstantly}</td>
+                  <td className="p-4">{t.qrPage.getPaidInstantlyDesc}</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
           <div className="text-center">
-            <h3 className="text-2xl font-bold mb-4">Call to Action</h3>
-            <p className="text-xl mb-6">One Dynamic QR. Any Bank. Zero Fees.</p>
-            <p className="text-lg mb-8 text-slate-300">Pay, send, and receive from any bank in Ethiopia. Just scan, confirm with your fingerprint, and done.</p>
+            <h3 className="text-2xl font-bold mb-4">{t.qrPage.callToAction}</h3>
+            <p className="text-xl mb-6">{t.qrPage.ctaTitle}</p>
+            <p className="text-lg mb-8 text-slate-300">{t.qrPage.ctaDesc}</p>
             <Link to="/">
               <Button size="lg" className="bg-[#CE1126] hover:bg-[#b00e20] text-white text-lg h-14 px-8">
-                Register Now <ArrowRight className="ml-2 w-5 h-5" />
+                {t.qrPage.registerBtn} <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
-            <p className="mt-6 text-sm text-slate-400">Vitabirr + ETSwitch Dynamic QR: One code. Any bank. No typing. Zero fees. Just confirm.</p>
+            <p className="mt-6 text-sm text-slate-400">{t.qrPage.ctaFooter}</p>
           </div>
         </div>
       </section>
