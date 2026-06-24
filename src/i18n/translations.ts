@@ -1,4 +1,4 @@
-export type Language = 'en' | 'so';
+export type Language = 'en' | 'so' | 'am' | 'om';
 
 export const translations = {
   en: {
@@ -188,6 +188,54 @@ export const translations = {
       ctaTitle: "Join Thousands of Ethiopians Using Vitabirr",
       ctaDesc: "Experience zero fees, instant settlements, and seamless interoperability.",
       ctaFooter: "Regulated by the National Bank of Ethiopia."
+    },
+    career: {
+      heroTitle: "Join Our Team",
+      heroDesc: "Build the future of Ethiopia's digital economy with Vitabirr.",
+      exploreBtn: "Explore Opportunities",
+      summaryTitle: "Why Work With Us?",
+      summaryDesc: "We are a team of innovators dedicated to financial inclusion and economic empowerment across Ethiopia.",
+      reason1Title: "Innovative Environment",
+      reason1Desc: "Work on cutting-edge financial technology that impacts millions of lives.",
+      reason2Title: "Financial Inclusion",
+      reason2Desc: "Be part of a mission to empower farmers, shops, and SMEs with zero-fee solutions.",
+      reason3Title: "Growth Opportunities",
+      reason3Desc: "We invest in our team's professional development and career advancement.",
+      reason4Title: "Collaborative Culture",
+      reason4Desc: "Join a diverse team that values transparency, integrity, and mutual respect.",
+      reason5Title: "Competitive Benefits",
+      reason5Desc: "Enjoy comprehensive health coverage, flexible working arrangements, and more.",
+      reason6Title: "Make an Impact",
+      reason6Desc: "Your work directly contributes to Ethiopia's economic prosperity.",
+      reason7Title: "Regulatory Excellence",
+      reason7Desc: "Operate within a fully compliant and highly respected regulatory framework.",
+      reason8Title: "Future-Focused",
+      reason8Desc: "Help shape the next generation of digital payments in Africa.",
+      conclusionTitle: "Ready to Make a Difference?",
+      conclusionDesc: "We are always looking for talented individuals who share our vision for a financially inclusive Ethiopia.",
+      joinTitle: "Start Your Journey With Us",
+      registerBtn: "View Open Positions"
+    },
+    cookiePolicy: {
+      title: "Cookie Policy",
+      content: "We use cookies to enhance your experience on our website. These cookies help us understand how you interact with our platform and improve our services."
+    },
+    partnerFunding: {
+      title: "Partner Funding",
+      content: "Vitabirr partners with Ethiopia's most respected commercial banks and MFIs to offer quick, Sharia-compliant, and seasonally flexible funding solutions for farmers and SMEs."
+    },
+    privacyPolicy: {
+      title: "Privacy Policy",
+      content: "At Vitabirr, we are committed to protecting your privacy. This policy outlines how we collect, use, and safeguard your personal information in accordance with Ethiopian data protection regulations."
+    },
+    registration: {} as any,
+    termsOfService: {
+      title: "Terms of Service",
+      content: "By using Vitabirr's services, you agree to these terms. We provide secure, zero-fee payment solutions for end users and seamless merchant settlements, governed by the National Bank of Ethiopia."
+    },
+    vitaFinance: {
+      title: "Vita Finance (BNPL)",
+      content: "Our Buy Now, Pay Later (BNPL) facility empowers merchants and consumers with flexible payment options, driving economic growth without the burden of upfront costs."
     }
   },
   so: {
@@ -367,16 +415,83 @@ export const translations = {
       howVitabirrHelps: "How Vitabirr Helps",
       payMerchant: "Pay a Merchant",
       payMerchantDesc: "Scan QR, confirm, done. Zero fees.",
-      receiveMoney: "Receive Money",
-      receiveMoneyDesc: "Share your QR. Funds arrive instantly.",
-      sendMoney: "Send Money to Friends",
-      sendMoneyDesc: "Scan their QR. Free P2P transfer.",
-      getPaidInstantly: "Get Paid Instantly",
-      getPaidInstantlyDesc: "Real-time settlement to your account.",
-      callToAction: "Ready to Transform Your Payments?",
       ctaTitle: "Join Thousands of Ethiopians Using Vitabirr",
       ctaDesc: "Experience zero fees, instant settlements, and seamless interoperability.",
       ctaFooter: "Regulated by the National Bank of Ethiopia."
+    },
+    career: {
+      heroTitle: "Ku Biir Kooxdayada",
+      heroDesc: "Dhis mustaqbalka dhaqaalaha dhijitaalka ah ee Itoobiya adigoo la shaqeynaya Vitabirr.",
+      exploreBtn: "Sahmi Fursadaha",
+      summaryTitle: "Maxaad Noogu Shaqeysaa?",
+      summaryDesc: "Waxaan nahay koox hal-abuurayaal ah oo u heellan inay dhiirrigeliyaan ka qaybgalka maaliyadeed iyo awood-siinta dhaqaale ee guud ahaan Itoobiya.",
+      reason1Title: "Deegaan Hal-abuur leh",
+      reason1Desc: "Ka shaqee teknoolojiyad maaliyadeed oo casri ah oo saameyn ku leh nolosha malaayiin qof.",
+      reason2Title: "Ka-qaybgalka Maaliyadeed",
+      reason2Desc: "Noqo qayb ka mid ah hawlgal awood u siinaya beeraleyda, dukaamada, iyo SME-yada xalal aan khidmad lahayn.",
+      reason3Title: "Fursadaha Kobaca",
+      reason3Desc: "Waxaan maalgelinaa horumarka xirfadeed ee kooxdayada iyo horumarka xirfadeed.",
+      reason4Title: "Dhaqan Iskaashi",
+      reason4Desc: "Ku biir koox kala duwan oo qiimeysa hufnaanta, daacadnimada, iyo ixtiraamka isku midka ah.",
+      reason5Title: "Faaiidooyin Tartan leh",
+      reason5Desc: "Ku raaxayso caymis caafimaad oo dhameystiran, habab shaqo oo dabacsan, iyo wax ka badan.",
+      reason6Title: "Samee Saameyn",
+      reason6Desc: "Shaqadaada waxay si toos ah uga qayb qaadataa barwaaqada dhaqaale ee Itoobiya.",
+      reason7Title: "Heerarka Xeerarka",
+      reason7Desc: "Ka shaqee gudaha qaab dhismeed xeerar oo buuxa oo aad loo ixtiraamo.",
+      reason8Title: "Mustaqbalka Diiradda Saaran",
+      reason8Desc: "Ka caawi inaad qaabeyso jiilka xiga ee lacag bixinta dhijitaalka ah ee Afrika.",
+      conclusionTitle: "Ma Diyaar Baad U Tahay Inaad Sameyso Isbeddel?",
+      conclusionDesc: "Waxaan had iyo jeer raadinaynaa shaqsiyaad xirfad leh oo wadaaga aragtideena ku saabsan Itoobiya oo dhan maaliyad ahaan loo dhammaystiray.",
+      joinTitle: "Bilow Safarkaaga Nagala",
+      registerBtn: "Eeg Boosaska Banaan"
+    },
+    cookiePolicy: {
+      title: "Siyaasadda Cookies-ka",
+      content: "Waxaan isticmaalnaa cookies si aan u horumarino khibradaada boggeena. Cookies-kan waxay naga caawiyaan inaan fahanno sida aad ula falgasho madalkeena oo aan u horumarino adeegyadeena."
+    },
+    partnerFunding: {
+      title: "Maalgelinta La-hawlgalayaasha",
+      content: "Vitabirr waxay la shaqeysaa bangiyada ganacsiga iyo hay'adaha maaliyadeed ee ugu ixtiraamka badan Itoobiya si ay u bixiso xalal maalgelineed oo degdeg ah, islaamiga ah, oo xilliyeed u dabacsan beeraleyda iyo SME-yada."
+    },
+    privacyPolicy: {
+      title: "Siyaasadda Qarsoodiga",
+      content: "Vitabirr waxaa ka go'an inay ilaaliso qarsoodigaaga. Siyaasaddani waxay qeexaysaa sida aan u ururinno, u isticmaalno, oo aan u ilaalino macluumaadkaaga shakhsiyeed iyadoo la raacayo xeerarka ilaalinta xogta ee Itoobiya."
+    },
+    registration: {} as any,
+    termsOfService: {
+      title: "Shuruudaha Adeegga",
+      content: "Adigoo isticmaalaya adeegyada Vitabirr, waxaad ogolaatay shuruudahan. Waxaan bixinnaa xalal lacag bixin oo ammaan ah oo aan lahayn khidmad isticmaalayaasha iyo dejiyo ganacsi oo aan kala go' lahayn, oo ay maamusho Bangiga Dhexe ee Itoobiya."
+    },
+    vitaFinance: {
+      title: "Vita Finance (BNPL)",
+      content: "Facility-gayaga 'Hadda Iibso, Kadibna Bixi' (BNPL) wuxuu awood u siinayaa ganacsatada iyo macaamiisha ikhtiyaaro lacag bixin oo dabacsan, isagoo kordhinaya kobaca dhaqaalaha iyada oo aan culeyska kharashyada hore loo bixiyo."
     }
+  },
+  am: {
+    nav: { about: "\u1235\u1208 \u12a5\u129b", services: "\u12a0\u1308\u120d\u130d\u120e\u1276\u127d", comparison: "\u121b\u12c8\u12f3\u12f0\u122d", caseStudies: "\u12e8\u1325\u1293\u1275 \u1309\u12f3\u12ee\u127d", team: "\u1261\u12f5\u1295", blog: "\u1265\u120e\u130d", contact: "\u12eb\u130d\u1299\u1295", getStarted: "\u12ed\u1300\u121d\u1229" },
+    hero: { badge: "\u12a8\u1263\u1295\u12ad \u12a0\u120d\u134e", title1: "\u12a8\u1270\u1320\u1243\u121a\u12ce\u127d \u12dc\u122e \u12ad\u134d\u12eb \u1208\u1295\u130d\u12f5 \u12ad\u134d\u12eb\u12ce\u127d \u1240\u120b\u120d\u1362", title2: "\u12e8\u12a2\u12ae\u1296\u121a \u1203\u12ed\u120d \u12eb\u1208\u12cd\u1362", subtitle: "Vitabirr \u2013 \u12a8\u1270\u1320\u1243\u121a\u12ce\u127d \u12dc\u122e \u12ad\u134d\u12eb \u1208\u1295\u130d\u12f5 \u12ad\u134d\u12eb\u12ce\u127d \u1240\u120b\u120d\u1362 \u12e8\u12a2\u1275\u12ee\u1335\u12eb\u1295 \u121d\u122d\u1243\u1275 \u121b\u1233\u12f0\u130d\u1362", cta: "\u12a0\u1201\u1295 \u12ed\u1218\u12dd\u1308\u1261 \u12a5\u1293 \u12e8Vitabirr \u12a0\u12ab\u12cd\u1295\u1275\u12ce\u1295 \u1260\u12f0\u1242\u1243 \u12cd\u1235\u1325 \u1295\u1241 \u12eb\u12f5\u122d\u1309\u1362", registerBtn: "\u12ed\u1218\u12dd\u1308\u1261 \u12a5\u1293 \u1356\u122d\u1273\u1209\u1295 \u12eb\u1235\u1231", learnMore: "\u1270\u1328\u121b\u122a \u12ed\u12c8\u1241" },
+    footer: { platform: "\u1355\u120b\u1275\u134e\u122d\u121d", qrSolution: "QR \u1218\u134d\u1275\u1204", vitaFinance: "Vita Finance (BNPL)", partnerFunding: "\u12e8\u12a0\u130b\u122d \u134b\u12ed\u1293\u1295\u1235", company: "\u12a9\u1263\u1295\u12eb", aboutUs: "\u1235\u1208 \u12a5\u129b", leadership: "\u12a0\u1218\u122b\u122d", insights: "\u130d\u1295\u12db\u1264\u12ce\u127d", careers: "\u1219\u12eb\u12ce\u127d", newsletter: "\u12dc\u1293 \u12f0\u1265\u12f3\u1264", newsletterDesc: "\u12e8\u12a2\u1275\u12ee\u1335\u12eb\u1295 \u12a2\u12ae\u1296\u121a \u12a5\u12f5\u1308\u1275 \u12ed\u12a8\u1273\u1270\u1209\u1362", join: "\u12ed\u1240\u120b\u1240\u1209", privacy: "\u12e8\u130d\u120b\u12ca\u1290\u1275 \u1356\u120a\u1232", terms: "\u12e8\u12a0\u1308\u120d\u130d\u120e\u1275 \u1201\u1294\u1273", cookies: "\u12e8\u12a9\u12aa \u1356\u120a\u1232" },
+    qrPage: {} as any,
+    career: {} as any,
+    cookiePolicy: {} as any,
+    partnerFunding: {} as any,
+    privacyPolicy: {} as any,
+    registration: {} as any,
+    termsOfService: {} as any,
+    vitaFinance: {} as any
+  },
+  om: {
+    nav: { about: "Waa'ee Keenya", services: "Tajaajila", comparison: "Waliin Madaaluu", caseStudies: "Qorannoo Haala", team: "Garee", blog: "Blog", contact: "Nu Quunnamaa", getStarted: "Jalqabi" },
+    hero: { badge: "Baankii Ol", title1: "Fayyadamtootaaf kaffaltii hin jiru, Kaffaltii daldalaa salphaa.", title2: "Diinagdeen kee, Humna qabu.", subtitle: "Vitabirr \u2013 Fayyadamtootaaf kaffaltii hin jiru, Kaffaltii daldalaa salphaa. Misooma diinagdee Itoophiyaa cimsuu.", cta: "Amma galmaa'ii fi akkaawuntii Vitabirr kee daqiiqaa muraasa keessatti hojii jalqabsiisi.", registerBtn: "Galmaa'ii fi Portalicha Qoradhu", learnMore: "Dabalataa Baradhu" },
+    footer: { platform: "Platform", qrSolution: "Furmaata QR", vitaFinance: "Vita Finance (BNPL)", partnerFunding: "Maallaqa Michuu", company: "Dhaabbata", aboutUs: "Waa'ee Keenya", leadership: "Hoggansa", insights: "Hubannoo", careers: "Hojii", newsletter: "Oduu", newsletterDesc: "Guddina diinagdee Itoophiyaa hordofaa.", join: "Walitti Makamaa", privacy: "Imaammata Dhuunfaa", terms: "Haala Tajaajilaa", cookies: "Imaammata Cookies" },
+    qrPage: {} as any,
+    career: {} as any,
+    cookiePolicy: {} as any,
+    partnerFunding: {} as any,
+    privacyPolicy: {} as any,
+    registration: {} as any,
+    termsOfService: {} as any,
+    vitaFinance: {} as any
   }
 };
