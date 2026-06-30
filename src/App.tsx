@@ -239,10 +239,6 @@ const Hero = () => {
             {t.hero.title1} <br />
             <span className="text-[#CE1126]">{t.hero.title2}</span>
           </h1>
-          <p className="text-white/60 text-xs mb-4">(*) Does not apply if you send money to another Financial institution.</p>
-          <p className="text-xl text-slate-300 mb-4 max-w-2xl leading-relaxed">
-            {t.hero.subtitle}
-          </p>
           <p className="text-lg text-white font-semibold mb-8 max-w-2xl">
             {t.hero.cta}
           </p>
@@ -750,8 +746,6 @@ const Footer = () => {
             <h4 className="font-bold mb-6">{t.footer.platform}</h4>
             <ul className="space-y-4 text-slate-400 text-sm">
               <li><Link to="/qr-solution" className="hover:text-white transition-colors">{t.footer.qrSolution}</Link></li>
-              <li><Link to="/vita-finance-bnpl" className="hover:text-white transition-colors">{t.footer.vitaFinance}</Link></li>
-              <li><Link to="/partner-funding" className="hover:text-white transition-colors">{t.footer.partnerFunding}</Link></li>
             </ul>
           </div>
 
@@ -761,7 +755,6 @@ const Footer = () => {
               <li><a href="#about" className="hover:text-white transition-colors">{t.footer.aboutUs}</a></li>
               <li><a href="#team" className="hover:text-white transition-colors">{t.footer.leadership}</a></li>
               <li><a href="#blog" className="hover:text-white transition-colors">{t.footer.insights}</a></li>
-              <li><Link to="/career" className="hover:text-white transition-colors">{t.footer.careers}</Link></li>
             </ul>
           </div>
 
@@ -781,8 +774,8 @@ const Footer = () => {
             Regulated under the National Bank of Ethiopia.
           </p>
           <div className="flex gap-8 text-xs text-slate-500">
-            <Link to="/privacy-policy" className="hover:text-white transition-colors">{t.footer.privacy}</Link>
-            <Link to="/terms-of-service" className="hover:text-white transition-colors">{t.footer.terms}</Link>
+            <a href="https://privacypolicy.vitabirr.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">{t.footer.privacy}</a>
+            <a href="https://termsconditions.vitabirr.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">{t.footer.terms}</a>
             <Link to="/cookie-policy" className="hover:text-white transition-colors">{t.footer.cookies}</Link>
           </div>
         </div>

@@ -26,54 +26,54 @@ const CareerPage = () => {
 
       <section className="py-16 px-4 bg-white">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">{t.career.summaryTitle}</h2>
-          <p className="text-lg text-slate-900 leading-relaxed mb-8">{t.career.summaryDesc}</p>
+          <h2 className="text-3xl font-bold text-black mb-6">{t.career.summaryTitle}</h2>
+          <p className="text-lg text-black leading-relaxed mb-8">{t.career.summaryDesc}</p>
         </div>
       </section>
 
       <section className="py-16 px-4 bg-slate-50">
         <div className="container mx-auto max-w-4xl space-y-12">
           <div className="bg-white p-8 rounded-xl shadow-md border-l-4 border-[#002147] hover:shadow-lg transition-shadow">
-            <h3 className="text-2xl font-bold text-slate-900 mb-4">{t.career.reason1Title}</h3>
-            <p className="text-slate-900 leading-relaxed">{t.career.reason1Desc}</p>
+            <h3 className="text-2xl font-bold text-black mb-4">{t.career.reason1Title}</h3>
+            <p className="text-black leading-relaxed">{t.career.reason1Desc}</p>
           </div>
           <div className="bg-white p-8 rounded-xl shadow-md border-l-4 border-[#002147] hover:shadow-lg transition-shadow">
-            <h3 className="text-2xl font-bold text-slate-900 mb-4">{t.career.reason2Title}</h3>
-            <p className="text-slate-900 leading-relaxed">{t.career.reason2Desc}</p>
+            <h3 className="text-2xl font-bold text-black mb-4">{t.career.reason2Title}</h3>
+            <p className="text-black leading-relaxed">{t.career.reason2Desc}</p>
           </div>
           <div className="bg-white p-8 rounded-xl shadow-md border-l-4 border-[#002147] hover:shadow-lg transition-shadow">
-            <h3 className="text-2xl font-bold text-slate-900 mb-4">{t.career.reason3Title}</h3>
-            <p className="text-slate-900 leading-relaxed">{t.career.reason3Desc}</p>
+            <h3 className="text-2xl font-bold text-black mb-4">{t.career.reason3Title}</h3>
+            <p className="text-black leading-relaxed">{t.career.reason3Desc}</p>
           </div>
           <div className="bg-white p-8 rounded-xl shadow-md border-l-4 border-[#002147] hover:shadow-lg transition-shadow">
-            <h3 className="text-2xl font-bold text-slate-900 mb-4">{t.career.reason4Title}</h3>
-            <p className="text-slate-900 leading-relaxed">{t.career.reason4Desc}</p>
+            <h3 className="text-2xl font-bold text-black mb-4">{t.career.reason4Title}</h3>
+            <p className="text-black leading-relaxed">{t.career.reason4Desc}</p>
           </div>
           <div className="bg-white p-8 rounded-xl shadow-md border-l-4 border-[#002147] hover:shadow-lg transition-shadow">
-            <h3 className="text-2xl font-bold text-slate-900 mb-4">{t.career.reason5Title}</h3>
-            <p className="text-slate-900 leading-relaxed">{t.career.reason5Desc}</p>
+            <h3 className="text-2xl font-bold text-black mb-4">{t.career.reason5Title}</h3>
+            <p className="text-black leading-relaxed">{t.career.reason5Desc}</p>
           </div>
           <div className="bg-white p-8 rounded-xl shadow-md border-l-4 border-[#002147] hover:shadow-lg transition-shadow">
-            <h3 className="text-2xl font-bold text-slate-900 mb-4">{t.career.reason6Title}</h3>
-            <p className="text-slate-900 leading-relaxed">{t.career.reason6Desc}</p>
+            <h3 className="text-2xl font-bold text-black mb-4">{t.career.reason6Title}</h3>
+            <p className="text-black leading-relaxed">{t.career.reason6Desc}</p>
           </div>
           <div className="bg-white p-8 rounded-xl shadow-md border-l-4 border-[#002147] hover:shadow-lg transition-shadow">
-            <h3 className="text-2xl font-bold text-slate-900 mb-4">{t.career.reason7Title}</h3>
-            <p className="text-slate-900 leading-relaxed">{t.career.reason7Desc}</p>
+            <h3 className="text-2xl font-bold text-black mb-4">{t.career.reason7Title}</h3>
+            <p className="text-black leading-relaxed">{t.career.reason7Desc}</p>
           </div>
           <div className="bg-white p-8 rounded-xl shadow-md border-l-4 border-[#002147] hover:shadow-lg transition-shadow">
-            <h3 className="text-2xl font-bold text-slate-900 mb-4">{t.career.reason8Title}</h3>
-            <p className="text-slate-900 leading-relaxed">{t.career.reason8Desc}</p>
+            <h3 className="text-2xl font-bold text-black mb-4">{t.career.reason8Title}</h3>
+            <p className="text-black leading-relaxed">{t.career.reason8Desc}</p>
           </div>
         </div>
       </section>
 
       <section className="py-16 px-4 bg-white">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">{t.career.conclusionTitle}</h2>
-          <p className="text-lg text-slate-900 leading-relaxed mb-8">{t.career.conclusionDesc}</p>
+          <h2 className="text-3xl font-bold text-black mb-6">{t.career.conclusionTitle}</h2>
+          <p className="text-lg text-black leading-relaxed mb-8">{t.career.conclusionDesc}</p>
           <div className="text-center mt-12">
-            <h3 className="text-2xl font-bold text-slate-900 mb-4">{t.career.joinTitle}</h3>
+            <h3 className="text-2xl font-bold text-black mb-4">{t.career.joinTitle}</h3>
             <Link to="/">
               <Button size="lg" className="bg-[#CE1126] hover:bg-[#b00e20] text-white text-lg h-14 px-8">
                 {t.career.registerBtn} <ArrowRight className="ml-2 w-5 h-5" />

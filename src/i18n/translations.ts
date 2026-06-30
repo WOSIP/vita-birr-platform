@@ -14,9 +14,9 @@ export const translations = {
     },
     hero: {
       badge: "Beyond Banking",
-      title1: "Zero fees for end users, Seamless merchant payments.",
-      title2: "Your Economy, Empowered.",
-      subtitle: "Vitabirr – Zero fees for end users, Seamless merchant payments. Powering Ethiopian prosperity.",
+      title1: "Beyond Banking and Seamless payments.",
+      title2: "Empower your Economy.",
+      subtitle: "Vitabirr \u2013 Zero fees for end users, Seamless merchant payments. Powering Ethiopian prosperity.",
       cta: "Register now and get your Vitabirr account active in minutes.",
       registerBtn: "Register & Explore the Portal",
       learnMore: "Learn More"

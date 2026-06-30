@@ -5,7 +5,7 @@ export type Language = 'en' | 'so' | 'am' | 'om';
 const translations = {
   en: {
     nav: { about: "About", services: "Services", comparison: "Comparison", caseStudies: "Case Studies", team: "Team", blog: "Blog", contact: "Contact", getStarted: "Get Started" },
-    hero: { badge: "Beyond Banking", title1: "Zero fees for end users, Seamless merchant payments.", title2: "Your Economy, Empowered.", subtitle: "Vitabirr – Zero fees for end users, Seamless merchant payments. Powering Ethiopian prosperity.", cta: "Register now and get your Vitabirr account active in minutes.", registerBtn: "Register & Explore the Portal", learnMore: "Learn More" },
+    hero: { badge: "Beyond Banking", title1: "Beyond Banking and Seamless payments.", title2: "Empower your Economy.", subtitle: "Vitabirr \u2013 Zero fees for end users, Seamless merchant payments. Powering Ethiopian prosperity.", cta: "Register now and get your Vitabirr account active in minutes.", registerBtn: "Register & Explore the Portal", learnMore: "Learn More" },
     footer: { platform: "Platform", qrSolution: "QR Solution", vitaFinance: "Vita Finance (BNPL)", partnerFunding: "Partner Funding", company: "Company", aboutUs: "About Us", leadership: "Leadership", insights: "Insights", careers: "Careers", newsletter: "Newsletter", newsletterDesc: "Stay updated with Ethiopia's economic progress.", join: "Join", privacy: "Privacy Policy", terms: "Terms of Service", cookies: "Cookie Policy" },
     qrPage: {
       heroTitle: "Vitabirr ETSwitch: The Future of QR Payments",
