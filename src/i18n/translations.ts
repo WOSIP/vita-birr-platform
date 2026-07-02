@@ -18,7 +18,7 @@ export const translations = {
       title2: "Empower your Economy.",
       subtitle: "Vitabirr \u2013 Zero fees for end users, Seamless merchant payments. Powering Ethiopian prosperity.",
       cta: "Register now and get your Vitabirr account active in minutes.",
-      registerBtn: "Register & Explore the Portal",
+      registerBtn: "Open your account now",
       learnMore: "Learn More"
     },
     footer: {
